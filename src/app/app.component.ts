@@ -7,9 +7,4 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'crud';
-  model = {
-    left: true,
-    middle: false,
-    right: false
-  };
 }
