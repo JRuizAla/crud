@@ -6,11 +6,13 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
+import { CrudComponent } from './components/crud/crud.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    CrudComponent
   ],
   imports: [
     BrowserModule,

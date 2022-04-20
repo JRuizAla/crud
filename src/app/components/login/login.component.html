@@ -27,12 +27,10 @@
       [(ngModel)]="usuario.password"
     />
     <label for="password1">Contraseña</label><br />
-    <input class="btn btn-outline-primary" type="submit" value="Acceder" />
-  </div>
+    <input class="btn btn-outline-primary" type="submit" value="Acceder" (click)="inicioSesion(usuario.username, usuario.password)"/>
 
-  <p>{{ usuario.username }}</p>
-  <br />
-  <p>{{ usuario.password }}</p>
-  <br />
+    <div *ngIf="existeUsuario===false ;">Usuario o contraseña incorrecta</div>
+    <div *ngIf="existeUsuario===true ;">Usuario correcto</div>
+  </div>
 </div>
 </body>
