@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from 'src/app/mocks/user';
+import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
+import { breakStatement } from '@babel/types';
 
 @Component({
   selector: 'app-login',
@@ -14,24 +16,35 @@ export class LoginComponent {
     this.getUsers();
   }
 
+  loginUsername = new FormControl('',[
+    Validators.required,
+    Validators.minLength(4),
+  ]);
+  loginPassword = new FormControl('',[
+    Validators.required,
+    Validators.minLength(4),
+  ]);
+
   usuario = new User(0, '', '');
 
   usuarios: User[] = [];
-  
-  existeUsuario: boolean|undefined = undefined;
+
+  existeUsuario: boolean | undefined = undefined;
 
   getUsers(): void {
     this.usuarios = this.LoginService.getUsers();
+    console.log(this.usuarios);
   }
 
-  inicioSesion(username: string, password: string): void {
-    let encontrado = this.usuarios.find(x => x.username === username && x.password === password);
-    if (encontrado) {
-      this.existeUsuario = true;
-    }
-    else{ this.existeUsuario = false;}
-    console.log(encontrado);
+  inicioSesion():void {
+    let encontrado: boolean = true;
+    for  (let i = 0; i < this.usuarios.length; i++){
+      if (
+        this.loginUsername.value === this.usuarios[i].username &&
+        this.loginPassword.value === this.usuarios[i].password
+      ){this.existeUsuario = true;break;} 
+      else {this.existeUsuario = false;}
+    };
+    console.log(this.existeUsuario);
   }
-
-
 }

@@ -1,6 +1,6 @@
 <br>
 <br>
-<body style="background-color:#0d6efd;">
+<body style="background-color:#7371fc;">
 <div class="container w-25 shadow-lg p-3 mb-5 bg-body rounded">
   <br>
   <hr>
@@ -14,7 +14,7 @@
       type="text"
       class="form-control"
       id="username"
-      [(ngModel)]="usuario.username"
+      [formControl]="loginUsername"
     />
     <label for="username">Usuario</label><br />
   </div>
@@ -24,13 +24,11 @@
       type="password"
       class="form-control"
       id="password1"
-      [(ngModel)]="usuario.password"
+      [formControl]="loginPassword"
     />
     <label for="password1">Contraseña</label><br />
-    <input class="btn btn-outline-primary" type="submit" value="Acceder" (click)="inicioSesion(usuario.username, usuario.password)"/>
-
+    <input class="btn btn-outline-primary" type="submit" value="Acceder" [disabled]="(!loginPassword.valid) || (!loginUsername.valid)" (click)="inicioSesion()"/>
     <div *ngIf="existeUsuario===false ;">Usuario o contraseña incorrecta</div>
-    <div *ngIf="existeUsuario===true ;">Usuario correcto</div>
   </div>
 </div>
 </body>
