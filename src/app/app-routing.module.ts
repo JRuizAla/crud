@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { CrudComponent } from './components/crud/crud.component';
-import { loginGuard } from './guards/your-guard.guard';
+import { loginGuard } from './guards/loginGuard';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
