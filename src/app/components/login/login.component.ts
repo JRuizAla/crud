@@ -37,7 +37,6 @@ export class LoginComponent {
   }
 
   inicioSesion():void {
-    let encontrado: boolean = true;
     for  (let i = 0; i < this.usuarios.length; i++){
       if (
         this.loginUsername.value === this.usuarios[i].username &&
