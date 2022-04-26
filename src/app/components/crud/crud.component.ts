@@ -8,8 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class CrudComponent implements OnInit {
 
   constructor() { }
-
   ngOnInit(): void {
   }
-
+  user:string | null = localStorage.getItem('loggedUser');
 }

@@ -1,0 +1,27 @@
+html {
+    height: 760px;
+    background-color: #A594F9;
+}
+body {
+  height: 600px;
+  background-color: #ffffff;
+}
+header{background-color: #A594F9;}
+
+.btn-outline-primary{
+    color: #7371fc;
+    background-color: #ffffff00;
+    border-color: #7371fc;
+}
+
+table{
+    background-color: #CDC1FF;
+}
+
+nav{
+    background-color: #A594F9;
+}
+
+.nav-link{
+    color: #E5D9F2;
+}

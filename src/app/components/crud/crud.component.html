@@ -1,22 +1,57 @@
-<br />
-<br />
-<nav class="nav nav-pills justify-content-end">
-    <li class="nav-item">
+<html>
+  <header>
+    <br>
+    <nav class="navbar">
+      <a class="navbar-brand">
+        <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQF80iYsTkaLxg/company-logo_200_200/0/1625339060198?e=2159024400&v=beta&t=f8OoZXcBICA7ShysefsMiyUILxMtB1C34miUk6pyk2s" alt="" width="64" height="64">
+      </a>
+    </nav>
+    <nav class="nav justify-content-end">
+      <li class="nav-item">
+        <p class="nav-link active">Usuario: {{ user }}</p>
+      </li>
+      <li class="nav-item">
         <a class="nav-link active" href="#addCar">Añadir Coche</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#logout">Cerrar Sesión</a>
-    </li>
-</nav>
-<br>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link active" href="#logout">Cerrar Sesión</a>
+      </li>
+    </nav>
+  </header>
+  <body>
+    <br />
+    <br />
 
-<table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Marca</th>
-        <th scope="col">Modelo</th>
-        <th scope="col">año</th>
-        <th scope="col">color</th>
-      </tr>
-    </thead>
+    <br />
+    <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Modelo</th>
+            <th scope="col">año</th>
+            <th scope="col">color</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Ferrari</td>
+            <td>Testarossa</td>
+            <td>1984</td>
+            <td>Rojo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Lamborghini</td>
+            <td>Diablo</td>
+            <td>1990</td>
+            <td>Amarillo</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <div class="fixed-bottom"></div>
+</html>

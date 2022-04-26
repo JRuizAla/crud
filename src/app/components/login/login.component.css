@@ -1,5 +1,19 @@
+html {
+    height: 760px;
+    background-color: #A594F9;
+}
+body {
+  height: 600px;
+  background-color: #CDC1FF;
+  color: #7371fc;
+}
+
 .btn-outline-primary{
     color: #7371fc;
     background-color: #ffffff00;
     border-color: #7371fc;
 }
+.fixed-bottom{
+    background-color: #CDC1FF;
+}
+
