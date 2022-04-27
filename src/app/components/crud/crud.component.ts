@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-crud',
@@ -7,8 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrudComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
   ngOnInit(): void {
   }
   user:string | null = localStorage.getItem('loggedUser');
+
+  closeSesion():void{
+    localStorage.clear();
+    this.router.navigate(['']);
+  }
 }

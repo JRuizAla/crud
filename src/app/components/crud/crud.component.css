@@ -6,22 +6,48 @@ body {
   height: 600px;
   background-color: #ffffff;
 }
-header{background-color: #A594F9;}
+p{
+    color: #CDC1FF; 
+}
+.mt-n1 {
+    margin-top: -1.8rem !important;
+  }
 
+.btn{
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
 .btn-outline-primary{
-    color: #7371fc;
+    color: #CDC1FF;
     background-color: #ffffff00;
-    border-color: #7371fc;
+    border-color: #CDC1FF;
+}
+.button:hover{
+    color: #CDC1FF;
+    background-color: #00000000;
+    border-color: #CDC1FF;
+}
+.btn-outline-secondary{
+    color: #000000;
+    background-color: #ffffff00;
+    border-color: #000000;
 }
 
 table{
     background-color: #CDC1FF;
 }
 
-nav{
+.navbar{
     background-color: #A594F9;
 }
 
 .nav-link{
-    color: #E5D9F2;
+    color: #000000;
+}
+
+.nav-link.active{
+    color: #000000;
+    background-color:#CDC1FF !important;
+}
+.navbar-brand{
+    padding-left: 20px;
 }

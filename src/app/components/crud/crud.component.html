@@ -1,57 +1,73 @@
 <html>
-  <header>
-    <br>
-    <nav class="navbar">
-      <a class="navbar-brand">
-        <img src="https://media-exp1.licdn.com/dms/image/C4E0BAQF80iYsTkaLxg/company-logo_200_200/0/1625339060198?e=2159024400&v=beta&t=f8OoZXcBICA7ShysefsMiyUILxMtB1C34miUk6pyk2s" alt="" width="64" height="64">
-      </a>
-    </nav>
-    <nav class="nav justify-content-end">
-      <li class="nav-item">
-        <p class="nav-link active">Usuario: {{ user }}</p>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#addCar">Añadir Coche</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link active" href="#logout">Cerrar Sesión</a>
-      </li>
-    </nav>
-  </header>
-  <body>
-    <br />
-    <br />
-
-    <br />
-    <div class="container">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">año</th>
-            <th scope="col">color</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Ferrari</td>
-            <td>Testarossa</td>
-            <td>1984</td>
-            <td>Rojo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Lamborghini</td>
-            <td>Diablo</td>
-            <td>1990</td>
-            <td>Amarillo</td>
-          </tr>
-        </tbody>
-      </table>
+<header>
+  <nav class="navbar navbar-expand-md">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+      <ul class="navbar-nav shadow bg-white rounded">
+        <a class="navbar-brand">
+          <img src="https://i.ibb.co/drvs9N1/car.png" class="mt-1" width="100" height="100"/>
+          <p class="text mt-n1 mb-1">NTT Garage</p>
+        </a>
+      </ul>
     </div>
-  </body>
-  <div class="fixed-bottom"></div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 justify-content-end">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <p class="nav-link">Usuario: {{ user }}</p>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-primary mx-1 hover" href="#addCar">Añadir Coche</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn btn-outline-primary mx-1" (click)="closeSesion()">Cerrar Sesión</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<body>
+  <br />
+  <br />
+
+  <br />
+  <div class="container">
+    <table class="table table-striped rounded">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Modelo</th>
+          <th scope="col">Año</th>
+          <th scope="col">Color</th>
+          <th scope="col">Acción</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Ferrari</td>
+          <td>Testarossa</td>
+          <td>1984</td>
+          <td>Rojo</td>
+          <td>
+                  <a class="btn btn-outline-secondary mx-1" style="padding: right 10px;" href="#editar">Editar</a>
+                  <a class="btn btn-outline-secondary mx-1">Borrar</a>
+          </td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Lamborghini</td>
+          <td>Diablo</td>
+          <td>1990</td>
+          <td>Amarillo</td>
+          <td>
+            <a class="btn btn-outline-secondary mx-1" style="padding: right 10px;" href="#editar">Editar</a>
+            <a class="btn btn-outline-secondary mx-1">Borrar</a>
+    </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+<div class="fixed-bottom"></div>
 </html>
