@@ -8,12 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
 import { CrudComponent } from './components/crud/crud.component';
+import { AddComponent } from './components/add/add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CrudComponent
+    CrudComponent,
+    AddComponent
   ],
   imports: [
     BrowserModule,

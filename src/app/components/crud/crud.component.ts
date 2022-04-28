@@ -18,3 +18,4 @@ export class CrudComponent implements OnInit {
     this.router.navigate(['']);
   }
 }
+//mock JSON para la tabla

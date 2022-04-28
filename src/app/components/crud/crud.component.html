@@ -10,12 +10,12 @@
       </ul>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 justify-content-end">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav mt-5">
         <li class="nav-item">
-          <p class="nav-link">Usuario: {{ user }}</p>
+          <p class="nav-link">Usuario conectado: {{ user }}</p>
         </li>
         <li class="nav-item">
-          <button type="button" class="btn btn-outline-primary mx-1 hover" href="#addCar">Añadir Coche</button>
+          <button type="button" class="btn btn-outline-primary mx-1 hover" routerLink="/add">Añadir Coche</button>
         </li>
         <li class="nav-item">
           <button type="button" class="btn btn-outline-primary mx-1" (click)="closeSesion()">Cerrar Sesión</button>

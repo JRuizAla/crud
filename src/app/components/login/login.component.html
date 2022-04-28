@@ -1,5 +1,6 @@
 <html>
-  <body>
+
+<body>
   <br><br><br>
   <div class="container w-25 shadow-lg p-3 mb-5 bg-body rounded">
     <br />
@@ -10,45 +11,22 @@
     </div>
     <hr />
     <div *ngIf="loginUsername.touched === true && !loginUsername.valid">
-      <small style="color: rgb(255, 90, 90)"
-        >Mínimo se necesitan 4 caracteres</small
-      >
+      <small style="color: rgb(255, 90, 90)">Mínimo se necesitan 4 caracteres</small>
     </div>
     <div class="form-floating">
-      <input
-        type="text"
-        class="form-control"
-        id="username"
-        [formControl]="loginUsername"
-      />
+      <input type="text" class="form-control" id="username" [formControl]="loginUsername" />
       <label for="username">Usuario</label><br />
     </div>
     <div *ngIf="loginPassword.touched === true && !loginPassword.valid">
-      <small style="color: rgb(255, 90, 90)"
-        >Mínimo se necesitan 4 caracteres</small
-      >
+      <small style="color: rgb(255, 90, 90)">Mínimo se necesitan 4 caracteres</small>
     </div>
     <div class="form-floating">
-      <input
-        type="password"
-        class="form-control"
-        id="password1"
-        [formControl]="loginPassword"
-      />
+      <input type="password" class="form-control" id="password1" [formControl]="loginPassword" />
       <label for="password1">Contraseña</label><br />
       <nav class="navbar">
-        <input
-          class="btn btn-outline-primary"
-          type="submit"
-          value="Acceder"
-          [disabled]="!loginPassword.valid || !loginUsername.valid"
-          (click)="inicioSesion()"
-        />
-        <div
-          class="alert alert-danger"
-          role="alert"
-          *ngIf="existeUsuario === false"
-        >
+        <input class="btn btn-outline-primary" type="submit" value="Acceder"
+          [disabled]="!loginPassword.valid || !loginUsername.valid" (click)="inicioSesion()" />
+        <div class="alert alert-danger" role="alert" *ngIf="existeUsuario === false">
           Usuario o contraseña incorrecta
         </div>
       </nav>
@@ -57,4 +35,5 @@
   </div>
 </body>
 <div class="fixed-bottom"></div>
+
 </html>

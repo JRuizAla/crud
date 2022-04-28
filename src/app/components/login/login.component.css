@@ -17,3 +17,8 @@ body {
     background-color: #CDC1FF;
 }
 
+.alert-danger{
+    color: #7371fc;
+    background-color: #ffffff00;
+    border-color: #7371fc;
+}

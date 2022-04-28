@@ -1,0 +1,39 @@
+<header>
+    <nav class="navbar navbar-expand-md">
+      <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav shadow bg-white rounded">
+          <a class="navbar-brand">
+            <img src="https://i.ibb.co/drvs9N1/car.png" class="mt-1" width="100" height="100"/>
+            <p class="text mt-n1 mb-1">NTT Garage</p>
+          </a>
+        </ul>
+      </div>
+      <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 justify-content-end">
+        <ul class="navbar-nav mt-5">
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-primary mx-1 hover" routerLink="/crud">Volver</button>
+          </li>
+          <li class="nav-item">
+            <button type="button" class="btn btn-outline-primary mx-1" (click)="closeSesion()">Cerrar Sesión</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <br /><br />
+  <div class="container w-75 shadow-lg p-3 mb-5 bg-body rounded">
+    <br />
+    <div align="center">
+      <p>Introduzca la información del coche</p>
+    </div>
+    <div class="form-floating">
+      <input type="text" class="form-control" id="username" [formControl]="marca" />
+      <label for="username">Marca</label><br />
+    </div>
+    <div class="form-floating">
+      <input type="password" class="form-control" id="password1" [formControl]="modelo" />
+      <label for="password1">Modelo</label><br />
+        <input class="btn btn-outline-primary" type="submit" value="Añadir"/>
+      <hr />
+    </div>
+  </div>
