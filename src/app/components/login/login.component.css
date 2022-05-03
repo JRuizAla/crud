@@ -18,7 +18,7 @@ body {
 }
 
 .alert-danger{
-    color: #7371fc;
+    color: #fc7171;
     background-color: #ffffff00;
-    border-color: #7371fc;
+    border-color: #fc7171;
 }

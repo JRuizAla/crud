@@ -1,13 +1,16 @@
 [
     {
         "id":1,
-        "marca":"Renault",
-        "modelo":
-        "color":
-        "año":
-        "acciones":["Crear", "Modificar"]
+        "marca":"Ferrari",
+        "modelo":"Testarossa",
+        "anio":1984,
+        "color":"rojo"
     },
     {
-
+        "id":2,
+        "marca":"Lamborghini",
+        "modelo":"Diablo",
+        "anio":1990,
+        "color":"Amarillo"
     }
 ]

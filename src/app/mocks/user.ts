@@ -1,7 +1,6 @@
-export class User{
-    constructor(
-        public id: number,
-        public username: string,
-        public password: string,
-      ) {  }
-}//hacer con tipado
+export interface User{
+        id: number,
+        username: string,
+        password: string,
+}
+//hacer con tipado

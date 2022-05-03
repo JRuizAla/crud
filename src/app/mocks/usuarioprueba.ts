@@ -6,4 +6,4 @@ export const USERS: User[] = [
   { id: 3, username: 'wwwww' , password: 'wwww'},
   { id: 4, username: 'aaaa' , password: 'aaaa'},
   { id: 5, username: 'bbbb' , password: 'bbbb'},
-];//convertir a JSON
+];//convertir a JSON, Hecho

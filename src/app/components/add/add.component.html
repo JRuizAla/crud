@@ -27,13 +27,19 @@
       <p>Introduzca la información del coche</p>
     </div>
     <div class="form-floating">
-      <input type="text" class="form-control" id="username" [formControl]="marca" />
+      <input type="text" class="form-control" id="marca" [formControl]="marca" />
       <label for="username">Marca</label><br />
     </div>
     <div class="form-floating">
-      <input type="password" class="form-control" id="password1" [formControl]="modelo" />
-      <label for="password1">Modelo</label><br />
-        <input class="btn btn-outline-primary" type="submit" value="Añadir"/>
+      <input type="text" class="form-control" id="modelo" [formControl]="modelo" />
+      <label for="modelo">Modelo</label><br />
+      <div class="form-floating">
+        <input type="text" class="form-control" id="anio" [formControl]="anio" />
+        <label for="modelo">Año</label><br />
+        <div class="form-floating">
+          <input type="text" class="form-control" id="color" [formControl]="color" />
+          <label for="modelo">Color</label><br />
+        <input class="btn btn-outline-primary" type="submit" value="Añadir" (click)="addCoche()"/>
       <hr />
     </div>
   </div>

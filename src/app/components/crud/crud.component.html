@@ -43,27 +43,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Ferrari</td>
-          <td>Testarossa</td>
-          <td>1984</td>
-          <td>Rojo</td>
+        <tr *ngFor="let coche of coches">
+          <td>{{coche.id}}</td>
+          <td>{{coche.marca}}</td>
+          <td>{{coche.modelo}}</td>
+          <td>{{coche.anio}}</td>
+          <td>{{coche.color}}</td>
           <td>
                   <a class="btn btn-outline-secondary mx-1" style="padding: right 10px;" href="#editar">Editar</a>
                   <a class="btn btn-outline-secondary mx-1">Borrar</a>
           </td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Lamborghini</td>
-          <td>Diablo</td>
-          <td>1990</td>
-          <td>Amarillo</td>
-          <td>
-            <a class="btn btn-outline-secondary mx-1" style="padding: right 10px;" href="#editar">Editar</a>
-            <a class="btn btn-outline-secondary mx-1">Borrar</a>
-    </td>
         </tr>
       </tbody>
     </table>
