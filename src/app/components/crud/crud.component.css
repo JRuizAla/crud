@@ -21,14 +21,14 @@ p{
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 .btn-outline-primary{
-    color: #CDC1FF;
+    color: #24222b;
     background-color: #ffffff00;
-    border-color: #CDC1FF;
+    border-color: #24222b;
 }
 .btn-outline-primary:hover{
-    color: #000000;
-    background-color: #CDC1FF;
-    border-color: #000000;
+    color: #CDC1FF;
+    background-color: #24222b;
+    border-color: #CDC1FF;
 }
 .btn-outline-secondary{
     color: #000000;

@@ -13,7 +13,7 @@ export class CrudComponent implements OnInit {
 
   constructor(private CrudService: CrudService, private router: Router) { }
   ngOnInit(): void { 
-    this.getCoches();
+    this.getCochesHTTP();
   }
 
   coches: coche[] = [];
@@ -29,5 +29,8 @@ export class CrudComponent implements OnInit {
     console.log(this.coches);
   }
 
+  getCochesHTTP(): void {
+    this.CrudService.getCochesHTTP();
+  }
 }
 //mock JSON para la tabla
