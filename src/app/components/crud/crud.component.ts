@@ -11,23 +11,19 @@ import { CrudService } from 'src/app/services/crud.service';
 })
 export class CrudComponent implements OnInit {
 
-  constructor(private CrudService: CrudService, private router: Router) { }
+  constructor(private crudService: CrudService, private router: Router) { }
   ngOnInit(): void { 
-    this.getCoches();
+    this.coches = this.crudService.getCoches();
   }
 
   coches: coche[] = [];
   user: string | null = localStorage.getItem('loggedUser');
 
-  closeSesion():void{
+  closeSesion():void{ // sacarlo a un servicio
     localStorage.clear();
     this.router.navigate(['']);
   }
 
-  getCoches(): void {
-    this.coches = this.CrudService.getCoches();
-    console.log(this.coches);
-  }
 
 }
 //mock JSON para la tabla
