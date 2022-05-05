@@ -7,7 +7,7 @@ import cochesData from 'src/app/mocks/coches.json'
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
-    let coches = JSON.stringify(cochesData);
-    return coches
+    let coches = cochesData;
+    return {coches};
   }
 }

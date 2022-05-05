@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import cochesData from 'src/app/mocks/coches.json'
+import { Coche } from 'src/app/model/coche.model';
+import { CochesService } from 'src/app/services/coches.service';
 
 @Component({
   selector: 'app-add',
@@ -10,7 +12,7 @@ import cochesData from 'src/app/mocks/coches.json'
 })
 export class AddComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private cochesService: CochesService) {}
 
   ngOnInit(): void {}
 
@@ -38,6 +40,13 @@ export class AddComponent implements OnInit {
 
   addCoche(): void{
     cochesData.push({id:cochesData.length+1 , marca: this.marca.value, modelo: this.modelo.value, anio:this.anio.value, color: this.color.value});
+    this.router.navigate(['/crud']);
+  }
+
+  addCocheHttp(): void{
+    let newCoche: Coche = {id:cochesData.length+1 , marca: this.marca.value, modelo: this.modelo.value, anio:this.anio.value, color: this.color.value}
+    console.log(newCoche)
+    this.cochesService.addCocheHttp(newCoche);
     this.router.navigate(['/crud']);
   }
   
