@@ -1,29 +1,15 @@
 import { Injectable } from '@angular/core';
-import { coche } from '../mocks/coche';
+import { coche } from '../model/coche.model';
 import cochesData from '../mocks/coches.json';
-import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-
 @Injectable({
   providedIn: 'root'
 })
-export class CrudService implements InMemoryDbService {
+export class CrudService {
 
-  constructor(
-    private http: HttpClient
-    ) { }
-
-  private cochesUrl = '/src/app/mocks/coches.json'; 
-
-  createDb(){return this.getCochesHTTP();}
+  constructor() { }
   
   getCoches(): coche[] {
     return cochesData;
-  }
-
-  getCochesHTTP():Observable<coche[]>{
-    return this.http.get<coche[]>(this.cochesUrl)
   }
 
 }

@@ -11,7 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
 import { CrudComponent } from './components/crud/crud.component';
 import { AddComponent } from './components/add/add.component';
-import { CrudService } from './services/crud.service';
+import { InMemoryDataService } from './services/in-memory-data.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +28,7 @@ import { CrudService } from './services/crud.service';
     ReactiveFormsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      CrudService, { dataEncapsulation: false }
+      InMemoryDataService, { dataEncapsulation: false }
     )
   ],
   providers: [],
