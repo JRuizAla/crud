@@ -12,9 +12,13 @@ import { CochesService } from 'src/app/services/coches.service';
 })
 export class AddComponent implements OnInit {
 
+  coches: Coche[]= [];
+
   constructor(private router: Router, private cochesService: CochesService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void { this.getCoches();
+
+  }
 
   marca = new FormControl('',[
     Validators.required,
@@ -38,15 +42,16 @@ export class AddComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  addCoche(): void{
-    cochesData.push({id:cochesData.length+1 , marca: this.marca.value, modelo: this.modelo.value, anio:this.anio.value, color: this.color.value});
-    this.router.navigate(['/crud']);
+  private getCoches(): void{
+    this.cochesService.getCoches().subscribe((coches : Coche[])=>{
+      console.log(coches);
+      this.coches = coches;
+  })
   }
-
   addCocheHttp(): void{
     let newCoche: Coche = {id:cochesData.length+1 , marca: this.marca.value, modelo: this.modelo.value, anio:this.anio.value, color: this.color.value}
     console.log(newCoche)
-    this.cochesService.addCocheHttp(newCoche);
+    this.cochesService.addCocheHttp(newCoche as Coche).subscribe(Coche => {this.coches.push(Coche);});
     this.router.navigate(['/crud']);
   }
   

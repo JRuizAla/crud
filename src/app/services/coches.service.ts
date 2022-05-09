@@ -26,7 +26,7 @@ export class CochesService {
 
   addCocheHttp(newCoche: Coche): Observable<Coche> {
     return this.http.post<Coche>(this.SERVER_URL, newCoche, this.httpOptions).pipe(
-      tap((newCoche: Coche) => console.log(`added hero w/ id=${newCoche.id}`)),
+      tap((newCoche: Coche) => console.log(`added coche w/ id=${newCoche.id}`)),
     );
   }
 }

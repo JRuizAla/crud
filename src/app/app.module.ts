@@ -12,13 +12,15 @@ import { AppComponent } from './app.component';
 import { CrudComponent } from './components/crud/crud.component';
 import { AddComponent } from './components/add/add.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     CrudComponent,
-    AddComponent
+    AddComponent,
+    EditComponent
   ],
   imports: [
     BrowserModule,

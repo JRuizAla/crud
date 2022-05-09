@@ -26,6 +26,4 @@ export class CrudComponent implements OnInit {
     this.router.navigate(['']);
   }
 
-  getCoches():void{}
-
 }
