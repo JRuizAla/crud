@@ -21,7 +21,7 @@ export class AddComponent implements OnInit {
   }
 
   marca = new FormControl('',[
-    Validators.required,
+    Validators.required,//Marcas reales con selector
     Validators.minLength(3),
   ]);
   modelo = new FormControl('',[
@@ -29,11 +29,11 @@ export class AddComponent implements OnInit {
     Validators.minLength(4),
   ]);
   anio = new FormControl('',[
-    Validators.required,
+    Validators.required,//validacion numerica
     Validators.minLength(4),
   ]);
   color = new FormControl('',[
-    Validators.required,
+    Validators.required,//colores basicos con array y selector
     Validators.minLength(4),
   ]);
 

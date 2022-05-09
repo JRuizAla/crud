@@ -28,7 +28,6 @@ export class LoginComponent {
   ]);
 
   usuarios: User[] = [];
-
   existeUsuario: boolean | undefined = undefined;
   loggedUser: User|undefined = undefined;
 

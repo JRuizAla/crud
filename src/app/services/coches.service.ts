@@ -24,9 +24,22 @@ export class CochesService {
       );
   }
 
+  getCoche(id: number): Observable<Coche> {
+    const url = `${this.SERVER_URL}/${id}`;
+    return this.http.get<Coche>(url).pipe(
+      tap(_ => console.log(`fetched coche id=${id}`)),
+    );
+  }
+
   addCocheHttp(newCoche: Coche): Observable<Coche> {
     return this.http.post<Coche>(this.SERVER_URL, newCoche, this.httpOptions).pipe(
       tap((newCoche: Coche) => console.log(`added coche w/ id=${newCoche.id}`)),
+    );
+  }
+
+  editCoche(coche: Coche): Observable<any> {
+    return this.http.put(this.SERVER_URL, coche, this.httpOptions).pipe(
+      tap(_ => console.log(`updated hero id=${coche.id}`))
     );
   }
 }

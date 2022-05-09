@@ -4,7 +4,7 @@
         "marca":"Ferrari",
         "modelo":"Testarossa",
         "anio":1984,
-        "color":"rojo"
+        "color":"Rojo"
     },
     {
         "id":2,
@@ -12,5 +12,12 @@
         "modelo":"Diablo",
         "anio":1990,
         "color":"Amarillo"
+    },
+    {
+        "id":3,
+        "marca":"Renault",
+        "modelo":"Clio",
+        "anio":2006,
+        "color":"Gris"
     }
 ]
