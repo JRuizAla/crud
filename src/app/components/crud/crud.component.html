@@ -50,8 +50,8 @@
           <td>{{coche.anio}}</td>
           <td>{{coche.color}}</td>
           <td>
-                  <a class="btn btn-outline-secondary mx-1" style="padding: right 10px;" (click)="edit(coche)">Editar</a>
-                  <a class="btn btn-outline-secondary mx-1">Borrar</a>
+                  <a class="btn btn-outline-secondary mx-1" style="padding: right 10px;" (click)="editComponent.setCoche(coche)">Editar</a>
+                  <a class="btn btn-outline-secondary mx-1" (click)="delete(coche)">Borrar</a>
           </td>
         </tr>
       </tbody>

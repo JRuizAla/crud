@@ -33,7 +33,7 @@ import { EditComponent } from './components/edit/edit.component';
       InMemoryDataService, { dataEncapsulation: false }
     )
   ],
-  providers: [],
+  providers: [EditComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,7 +5,6 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Coche } from 'src/app/model/coche.model';
-
 @Injectable({ providedIn: 'root' })
 export class CochesService {
 
@@ -38,8 +37,15 @@ export class CochesService {
   }
 
   editCoche(coche: Coche): Observable<any> {
-    return this.http.put(this.SERVER_URL, coche, this.httpOptions).pipe(
-      tap(_ => console.log(`updated hero id=${coche.id}`))
+    console.log(coche)
+    return this.http.put(`${this.SERVER_URL}/${coche.id}`, coche, this.httpOptions)
+  }
+
+  deleteCoche(id: number): Observable<Coche> {
+    const url = `${this.SERVER_URL}/${id}`;
+  
+    return this.http.delete<Coche>(url, this.httpOptions).pipe(
+      tap(_ => console.log(`deleted coche id=${id}`))
     );
   }
 }
