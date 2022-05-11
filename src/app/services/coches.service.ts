@@ -5,6 +5,8 @@ import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
 import { Coche } from 'src/app/model/coche.model';
+import marcasData from 'src/app/mocks/marcas.json';
+import { Marca } from 'src/app/model/marcas.model';
 @Injectable({ providedIn: 'root' })
 export class CochesService {
 
@@ -47,5 +49,9 @@ export class CochesService {
     return this.http.delete<Coche>(url, this.httpOptions).pipe(
       tap(_ => console.log(`deleted coche id=${id}`))
     );
+  }
+
+  getMarcas(): Marca[]{
+    return marcasData;
   }
 }

@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: '', redirectTo: '', pathMatch: 'full' },
   { path: 'crud', component: CrudComponent, canActivate:[loginGuard] },
   { path: 'add', component: AddComponent, canActivate:[loginGuard] },
-  { path: 'edit', component: EditComponent, canActivate:[loginGuard] }
+  { path: 'edit/:id', component: EditComponent, canActivate:[loginGuard] }
 
 ];
 

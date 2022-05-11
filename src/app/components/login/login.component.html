@@ -10,19 +10,19 @@
       <p>Introduzca su usuario y contraseña</p>
     </div>
     <hr />
-    <div *ngIf="loginUsername.touched === true && !loginUsername.valid">
-      <small style="color: rgb(255, 90, 90)">Mínimo se necesitan 4 caracteres</small>
-    </div>
-    <div class="form-floating">
+    <div class="form-floating mt-n1">
       <input type="text" class="form-control" id="username" [formControl]="loginUsername" />
       <label for="username">Usuario</label><br />
     </div>
-    <div *ngIf="loginPassword.touched === true && !loginPassword.valid">
+    <div *ngIf="loginUsername.touched === true && !loginUsername.valid">
       <small style="color: rgb(255, 90, 90)">Mínimo se necesitan 4 caracteres</small>
     </div>
-    <div class="form-floating">
+    <div class="form-floating mt-n2">
       <input type="password" class="form-control" id="password1" [formControl]="loginPassword" />
       <label for="password1">Contraseña</label><br />
+      <div class="mt-2" *ngIf="loginPassword.touched === true && !loginPassword.valid">
+        <small style="color: rgb(255, 90, 90)">Mínimo se necesitan 4 caracteres</small>
+      </div>
       <nav class="navbar">
         <input class="btn btn-outline-primary" type="submit" value="Acceder"
           [disabled]="!loginPassword.valid || !loginUsername.valid" (click)="inicioSesion()" />

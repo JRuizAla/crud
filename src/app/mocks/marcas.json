@@ -1,0 +1,30 @@
+[
+    {
+        "id":1,
+        "marca":"Ferrari"
+    },
+    {
+        "id":2,
+        "marca":"Lamborghini"
+    },
+    {
+        "id":4,
+        "marca":"Renault"
+    },
+    {
+        "id":5,
+        "marca":"Dacia"
+    },
+    {
+        "id":6,
+        "marca":"Buggatti"
+    },
+    {
+        "id":7,
+        "marca":"Opel"
+    },
+    {
+        "id":8,
+        "marca":"Volvo"
+    }
+]

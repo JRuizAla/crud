@@ -1,5 +1,5 @@
 html {
-    height: 760px;
+    height: 753px;
     background-color: #A594F9;
 }
 body {
@@ -21,4 +21,22 @@ body {
     color: #fc7171;
     background-color: #ffffff00;
     border-color: #fc7171;
+}
+
+.alert{
+    display: inline-block;   
+}
+
+.mt-n1 {
+    margin-bottom: -1rem !important;
+  }
+
+  .mt-2 {
+    margin-top: -1rem !important;
+    margin-bottom: -0.25rem !important;
+}
+
+:disabled{
+    color: #2b2b2f;
+    border-color: #2b2b2f;
 }

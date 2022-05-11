@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import cochesData from 'src/app/mocks/coches.json'
 import { Coche } from 'src/app/model/coche.model';
+import { Marca } from 'src/app/model/marcas.model';
 import { CochesService } from 'src/app/services/coches.service';
 
 @Component({
@@ -13,17 +14,15 @@ import { CochesService } from 'src/app/services/coches.service';
 export class AddComponent implements OnInit {
 
   coches: Coche[]= [];
+  marcas: Marca[]= [];
+  marcass:string ='';
 
   constructor(private router: Router, private cochesService: CochesService) {}
 
-  ngOnInit(): void { this.getCoches();
+  ngOnInit(): void { this.getCoches(); this.getMarcas();
 
   }
 
-  marca = new FormControl('',[
-    Validators.required,//Marcas reales con selector
-    Validators.minLength(3),
-  ]);
   modelo = new FormControl('',[
     Validators.required,
     Validators.minLength(4),
@@ -48,8 +47,13 @@ export class AddComponent implements OnInit {
       this.coches = coches;
   })
   }
+
+  getMarcas():void{
+    this.marcas = this.cochesService.getMarcas();
+  }
+
   addCocheHttp(): void{
-    let newCoche: Coche = {id:cochesData.length+1 , marca: this.marca.value, modelo: this.modelo.value, anio:this.anio.value, color: this.color.value}
+    let newCoche: Coche = {id:cochesData.length+1 , marca: this.marcass, modelo: this.modelo.value, anio:this.anio.value, color: this.color.value}
     console.log(newCoche)
     this.cochesService.addCocheHttp(newCoche as Coche).subscribe(Coche => {this.coches.push(Coche);});
     this.router.navigate(['/crud']);
