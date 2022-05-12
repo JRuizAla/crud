@@ -43,14 +43,11 @@ export class EditComponent implements OnInit {
     });
   }
 
-
-
-
   closeSesion(){
     this.crudService.closeSesion();
   }
 
-  save(): void{
+  saveForm(): void{
     this.coche.marca = this.marca.value;
     this.coche.modelo = this.modelo.value;
     this.coche.anio = this.anio.value;

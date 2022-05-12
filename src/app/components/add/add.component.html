@@ -21,29 +21,38 @@
   </nav>
 </header>
 <br /><br />
-<div class="container w-75 shadow-lg p-3 mb-5 bg-body rounded">
+<div class="container w-50 shadow-lg p-3 mb-5 bg-body rounded">
   <br />
   <div align="center">
     <p>Introduzca la información del coche</p>
   </div>
-  <div class="form-control">
+  <div class="form-control mb-4">
     <label for="marca">Marca</label>
-    <select type="text" class="form-select" id="marca" [(ngModel)]="marcass">
+    <select type="text" class="form-select form-select-sm" id="marca" [(ngModel)]="marcasForm">
       <option *ngFor="let marca of marcas">{{marca.marca}}</option>
     </select>
   </div>
   <div class="form-floating">
     <input type="text" class="form-control" id="modelo" [formControl]="modelo" />
     <label for="modelo">Modelo</label><br />
+    <div class="mt-2" *ngIf="modelo.touched === true && !modelo.valid">
+      <small style="color: rgb(255, 90, 90)">Mínimo se necesitan 3 caracteres</small>
+  </div>
   </div>
   <div class="form-floating">
-    <input type="number" class="form-control" id="anio" [formControl]="anio" />
+    <input type="text" class="form-control" id="anio" [formControl]="anio" />
     <label for="modelo">Año</label><br />
+    <div class="mt-2" *ngIf="anio.touched === true && !anio.valid">
+      <small class="" style="color: rgb(255, 90, 90)">Mínimo se necesitan 4 NÚMEROS</small>
   </div>
-  <div class="form-floating">
-    <input type="text" class="form-control" id="color" [formControl]="color" />
-    <label for="modelo">Color</label><br />
-    <input class="btn btn-outline-primary" type="submit" value="Añadir" (click)="addCocheHttp()" />
+  </div>
+  <div class="form-control mb-4">
+    <label for="color">Color</label>
+    <select type="text" class="form-select form-select-sm" id="color" required="color" [(ngModel)]="colorForm">
+      <option *ngFor="let color of colores">{{color}}</option>
+    </select>
+  </div>
+    <input class="btn btn-outline-primary" type="submit" value="Añadir" [disabled]="!anio.valid || !modelo.valid || !(marcasForm !='') || !(colorForm !='') " (click)="addCocheHttp()" />
     <hr />
-  </div>
+    <br>
 </div>

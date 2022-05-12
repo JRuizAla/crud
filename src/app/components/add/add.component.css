@@ -17,6 +17,11 @@ p{
     margin-top: 4rem !important;
 }
 
+.mt-2 {
+    margin-top: -1.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
+
 .btn{
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
@@ -55,4 +60,21 @@ p{
 }
 .navbar-brand{
     padding-left: 20px;
+}
+
+.form-control{
+    color:#6F7275;
+    font-size: 14px;
+    font-weight: 350;
+}
+.form-select{
+    color:#6F7275;
+    font-size: 14px;
+    font-weight: 350;
+}
+
+:disabled{
+    color: #979797;
+    border-color: #979797;
+    background-color: #0f0f0f;
 }

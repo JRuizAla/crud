@@ -25,13 +25,13 @@ export class CrudComponent implements OnInit {
     this.crudService.closeSesion();
   }
 
-  editCoche(coche: Coche):void{
+  editCar(coche: Coche):void{
     console.log(coche);
     this.cochesService.editCoche(coche);
     this.router.navigate(['edit', coche.id]);
   }
 
-  delete(coche: Coche): void {
+  deleteCar(coche: Coche): void {
     this.coches = this.coches.filter(h => h !== coche);
     this.cochesService.deleteCoche(coche.id).subscribe();
   }
