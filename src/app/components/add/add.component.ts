@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import CarsData from 'src/app/mocks/coches.json'
 import { Car } from 'src/app/model/coche.model';
 import { Marca } from 'src/app/model/marcas.model';
 import { CrudService } from 'src/app/services/crud.service';
@@ -20,7 +19,7 @@ export class AddComponent implements OnInit {
   colores: string[]=['Rojo','Amarillo','Azul','Verde','Morado','Blanco','Negro','Gris','Rosa','Naranja'];
   colorForm:string='';
   numberRegEx = /\-?\d*\.?\d{1,2}/;
-  
+
 //form group
   modelo = new FormControl('',[
     Validators.required,
@@ -55,7 +54,7 @@ export class AddComponent implements OnInit {
   }
 
   addCar(): void{
-    let newCoche: Car = {id:CarsData.length+1 , marca: this.marcasForm, modelo: this.modelo.value, anio:this.anio.value, color: this.colorForm}
+    let newCoche: Car = {id:this.Cars.length+1 , marca: this.marcasForm, modelo: this.modelo.value, anio:this.anio.value, color: this.colorForm}
     console.log(newCoche)
     this.crudService.addCarHttp(newCoche as Car).subscribe(Coche => {this.Cars.push(Coche);});
     this.router.navigate(['/crud']);
