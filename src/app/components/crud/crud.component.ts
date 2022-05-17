@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Coche } from 'src/app/model/coche.model';
-import { CochesService } from 'src/app/services/coches.service';
+import { Car } from 'src/app/model/coche.model';
+import { CrudService } from 'src/app/services/crud.service';
 import { LoginService } from 'src/app/services/login.service';
 import { EditComponent } from '../edit/edit.component';
 @Component({
@@ -10,12 +10,12 @@ import { EditComponent } from '../edit/edit.component';
   styleUrls: ['./crud.component.css']
 })
 export class CrudComponent implements OnInit {
-  coches: Coche[] = [];
+  coches: Car[] = [];
   user: string | null = localStorage.getItem('loggedUser');
 
-  constructor(private router: Router, private cochesService: CochesService, private loginService: LoginService,public editComponent: EditComponent) { }
+  constructor(private router: Router, private crudService: CrudService, private loginService: LoginService,public editComponent: EditComponent) { }
   ngOnInit(): void {
-    this.cochesService.getCoches().subscribe((data : Coche[])=>{
+    this.crudService.getCars().subscribe((data : Car[])=>{
       console.log(data);
       this.coches = data;
   })
@@ -25,15 +25,15 @@ export class CrudComponent implements OnInit {
     this.loginService.closeSesion();
   }
 
-  editCar(coche: Coche):void{
-    console.log(coche);
-    this.cochesService.editCoche(coche);
-    this.router.navigate(['edit', coche.id]);
+  editCar(car: Car):void{
+    console.log(car);
+    this.crudService.editCar(car);
+    this.router.navigate(['edit', car.id]);
   }
 
-  deleteCar(coche: Coche): void {
-    this.coches = this.coches.filter(h => h !== coche);
-    this.cochesService.deleteCoche(coche.id).subscribe();
+  deleteCar(car: Car): void {
+    this.coches = this.coches.filter(h => h !== car);
+    this.crudService.deleteCar(car.id).subscribe();
   }
 
 

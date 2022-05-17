@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/app/services/login.service';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CochesService } from 'src/app/services/coches.service';
-import { Coche } from 'src/app/model/coche.model';
+import { CrudService } from 'src/app/services/crud.service';
+import { Car } from 'src/app/model/coche.model';
+import { Marca } from 'src/app/model/marcas.model';
 
 @Component({
   selector: 'app-edit',
@@ -11,34 +12,35 @@ import { Coche } from 'src/app/model/coche.model';
   styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
-  public coche!: Coche;
+  
+  public car!: Car;
+  marcas: Marca[]= [];
+  marcasForm:string ='';
+  colores: string[]=['Rojo','Amarillo','Azul','Verde','Morado','Blanco','Negro','Gris','Rosa','Naranja'];
+  colorForm:string='';
+  numberRegEx = /\-?\d*\.?\d{1,2}/;
 
-  marca = new FormControl('',[
+  modelo = new FormControl('',[
     Validators.required,
     Validators.minLength(3),
   ]);
-  modelo = new FormControl('',[
-    Validators.required,
-    Validators.minLength(4),
-  ]);
   anio = new FormControl('',[
-    Validators.required,
     Validators.minLength(4),
-  ]);
-  color = new FormControl('',[
+    Validators.maxLength(4),
     Validators.required,
-    Validators.minLength(4),
-  ]);
+    Validators.pattern(this.numberRegEx)],
+  );
 
-  constructor(private loginService:LoginService, private router:Router, private cochesService: CochesService, private route: ActivatedRoute) {
+  constructor(private loginService:LoginService, private router:Router, private crudService: CrudService, private route: ActivatedRoute) {
    }
 
 
   ngOnInit(): void {
-    this.cochesService.getCoche(this.route.snapshot.params['id']).subscribe( (coche: Coche) => {
-      this.coche = coche;
+    this.crudService.getCar(this.route.snapshot.params['id']).subscribe( (car: Car) => {
+      this.car = car;
       this.updateForm();
-      console.log(this.coche);
+      this.getMarcas();
+      console.log(this.car);
     });
   }
 
@@ -47,20 +49,24 @@ export class EditComponent implements OnInit {
   }
 
   saveForm(): void{
-    this.coche.marca = this.marca.value;
-    this.coche.modelo = this.modelo.value;
-    this.coche.anio = this.anio.value;
-    this.coche.color = this.color.value;
-    this.cochesService.editCoche(this.coche).subscribe(response => console.log(response));
+    this.car.marca = this.marcasForm;
+    this.car.modelo = this.modelo.value;
+    this.car.anio = this.anio.value;
+    this.car.color = this.colorForm;
+    this.crudService.editCar(this.car).subscribe(response => console.log(response));
     this.router.navigate(['/crud']);
-    console.log(this.coche)
+    console.log(this.car)
   }
 
   updateForm(): void{
-    this.marca.patchValue(this.coche.marca);
-    this.modelo.patchValue(this.coche.modelo);
-    this.anio.patchValue(this.coche.anio);
-    this.color.patchValue(this.coche.color);
+    this.marcasForm = (this.car.marca);
+    this.modelo.patchValue(this.car.modelo);
+    this.anio.patchValue(this.car.anio);
+    this.colorForm = (this.car.color);
+  }
+
+  getMarcas():void{
+    this.marcas = this.crudService.getMarcas();
   }
 
 }

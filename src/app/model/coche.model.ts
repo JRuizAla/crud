@@ -1,4 +1,4 @@
-export interface Coche{
+export interface Car{
     id: number,
     marca: string,
     modelo: string,

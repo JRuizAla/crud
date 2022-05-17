@@ -11,7 +11,12 @@ p{
 }
 .mt-n1 {
     margin-top: -1.8rem !important;
-  }
+}
+
+.mt-2 {
+    margin-top: -1.5rem !important;
+    margin-bottom: 0.5rem !important;
+}
 
 .mt-5 {
     margin-top: 4rem !important;

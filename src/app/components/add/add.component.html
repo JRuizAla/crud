@@ -52,7 +52,7 @@
       <option *ngFor="let color of colores">{{color}}</option>
     </select>
   </div>
-    <input class="btn btn-outline-primary" type="submit" value="Añadir" [disabled]="!anio.valid || !modelo.valid || !(marcasForm !='') || !(colorForm !='') " (click)="addCocheHttp()" />
+    <input class="btn btn-outline-primary" type="submit" value="Añadir" [disabled]="!anio.valid || !modelo.valid || !(marcasForm !='') || !(colorForm !='') " (click)="addCar()" />
     <hr />
     <br>
 </div>

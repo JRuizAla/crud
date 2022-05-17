@@ -3,7 +3,7 @@ import { User } from 'src/app/model/user.model';
 import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +11,6 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private LoginService: LoginService, private router: Router, private modalService: NgbModal) {}
-
-  ngOnInit(): void {
-    this.getUsers();
-    localStorage.clear();
-    console.log(localStorage.getItem('loggedUser'));
-  }
 
   loginUsername = new FormControl('',[
     Validators.required,
@@ -31,6 +24,15 @@ export class LoginComponent {
   usuarios: User[] = [];
   existeUsuario: boolean | undefined = undefined;
   loggedUser: User|undefined = undefined;
+
+  
+  constructor(private LoginService: LoginService, private router: Router, private modalService: NgbModal) {}
+
+  ngOnInit(): void {
+    this.getUsers();
+    localStorage.clear();
+    console.log(localStorage.getItem('loggedUser'));
+  }
 
   getUsers(): void {
     this.usuarios = this.LoginService.getUsers();
