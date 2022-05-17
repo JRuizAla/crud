@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { validate } from '@babel/types';
 import cochesData from 'src/app/mocks/coches.json'
 import { Coche } from 'src/app/model/coche.model';
 import { Marca } from 'src/app/model/marcas.model';
 import { CochesService } from 'src/app/services/coches.service';
-import { CrudService } from 'src/app/services/crud.service';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-add',
@@ -33,14 +32,14 @@ export class AddComponent implements OnInit {
     Validators.pattern(this.numberRegEx)],
   );
 
-  constructor(private router: Router, private cochesService: CochesService, private crudService:CrudService) {}
+  constructor(private router: Router, private cochesService: CochesService, private loginService:LoginService) {}
 
   ngOnInit(): void { this.getCoches(); this.getMarcas();
 
   }
 
   closeSesion():void{
-    this.crudService.closeSesion();
+    this.loginService.closeSesion();
   }
 
   getCoches(): void{

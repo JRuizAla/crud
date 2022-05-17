@@ -3,6 +3,7 @@ import { User } from 'src/app/model/user.model';
 import { FormControl, Validators } from '@angular/forms';
 import { LoginService } from 'src/app/services/login.service';
 import { Router } from '@angular/router';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent {
-  constructor(private LoginService: LoginService, private router: Router) {}
+  constructor(private LoginService: LoginService, private router: Router, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.getUsers();
@@ -36,7 +37,7 @@ export class LoginComponent {
     console.log(this.usuarios);
   }
 
-  inicioSesion():void {
+  inicioSesion(content:any):void {
     for  (let i = 0; i < this.usuarios.length; i++){
       if (
         this.loginUsername.value === this.usuarios[i].username &&
@@ -48,8 +49,14 @@ export class LoginComponent {
         break;} 
       else {this.existeUsuario = false; localStorage.clear();}
     };
+    if(!this.existeUsuario){this.open(content);};
     console.log(this.existeUsuario);
     console.log(this.loggedUser);
     console.log(localStorage.getItem('loggedUser'));
   }
+
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'error login'});
+  }
+
 }

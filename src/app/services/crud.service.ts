@@ -7,8 +7,4 @@ export class CrudService {
 
   constructor( private router: Router) { }
 
-  closeSesion():void{
-    localStorage.clear();
-    this.router.navigate(['']);
-  }
 }

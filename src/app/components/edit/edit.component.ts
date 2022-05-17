@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from 'src/app/services/crud.service';
+import { LoginService } from 'src/app/services/login.service';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CochesService } from 'src/app/services/coches.service';
 import { Coche } from 'src/app/model/coche.model';
-import { delay } from 'rxjs';
 
 @Component({
   selector: 'app-edit',
@@ -31,7 +30,7 @@ export class EditComponent implements OnInit {
     Validators.minLength(4),
   ]);
 
-  constructor(private crudService:CrudService, private router:Router, private cochesService: CochesService, private route: ActivatedRoute) {
+  constructor(private loginService:LoginService, private router:Router, private cochesService: CochesService, private route: ActivatedRoute) {
    }
 
 
@@ -44,7 +43,7 @@ export class EditComponent implements OnInit {
   }
 
   closeSesion(){
-    this.crudService.closeSesion();
+    this.loginService.closeSesion();
   }
 
   saveForm(): void{

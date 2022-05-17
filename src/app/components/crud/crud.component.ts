@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Coche } from 'src/app/model/coche.model';
 import { CochesService } from 'src/app/services/coches.service';
-import { CrudService } from 'src/app/services/crud.service';
+import { LoginService } from 'src/app/services/login.service';
 import { EditComponent } from '../edit/edit.component';
 @Component({
   selector: 'app-crud',
@@ -13,7 +13,7 @@ export class CrudComponent implements OnInit {
   coches: Coche[] = [];
   user: string | null = localStorage.getItem('loggedUser');
 
-  constructor(private router: Router, private cochesService: CochesService, private crudService: CrudService,public editComponent: EditComponent) { }
+  constructor(private router: Router, private cochesService: CochesService, private loginService: LoginService,public editComponent: EditComponent) { }
   ngOnInit(): void {
     this.cochesService.getCoches().subscribe((data : Coche[])=>{
       console.log(data);
@@ -22,7 +22,7 @@ export class CrudComponent implements OnInit {
   }
 
   closeSesion():void{ 
-    this.crudService.closeSesion();
+    this.loginService.closeSesion();
   }
 
   editCar(coche: Coche):void{
