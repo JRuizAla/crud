@@ -13,7 +13,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class AddComponent implements OnInit {
 
-  Cars: Car[]= [];
+  cars: Car[]= [];
   marcas: Marca[]= [];
   marcasForm:string ='';
   colores: string[]=['Rojo','Amarillo','Azul','Verde','Morado','Blanco','Negro','Gris','Rosa','Naranja'];
@@ -43,9 +43,8 @@ export class AddComponent implements OnInit {
   }
 
   getCars(): void{
-    this.crudService.getCars().subscribe((Cars : Car[])=>{
-      console.log(Cars);
-      this.Cars = Cars;
+    this.crudService.getCars().subscribe((cars : Car[])=>{
+      this.cars = cars;
   })
   }
 
@@ -54,9 +53,8 @@ export class AddComponent implements OnInit {
   }
 
   addCar(): void{
-    let newCoche: Car = {id:this.Cars.length+1 , marca: this.marcasForm, modelo: this.modelo.value, anio:this.anio.value, color: this.colorForm}
-    console.log(newCoche)
-    this.crudService.addCarHttp(newCoche as Car).subscribe(Coche => {this.Cars.push(Coche);});
+    let newCoche: Car = {id:this.cars.length+1 , marca: this.marcasForm, modelo: this.modelo.value, anio:this.anio.value, color: this.colorForm}
+    this.crudService.addCarHttp(newCoche as Car).subscribe(Coche => {this.cars.push(Coche);});
     this.router.navigate(['/crud']);
   }
   

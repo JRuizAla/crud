@@ -21,43 +21,38 @@ export class LoginComponent {
     Validators.minLength(4),
   ]);
 
-  usuarios: User[] = [];
-  existeUsuario: boolean | undefined = undefined;
+  users: User[] = [];
+  userExist: boolean | undefined = undefined;
   loggedUser: User|undefined = undefined;
 
-  
+
   constructor(private LoginService: LoginService, private router: Router, private modalService: NgbModal) {}
 
   ngOnInit(): void {
     this.getUsers();
     localStorage.clear();
-    console.log(localStorage.getItem('loggedUser'));
   }
 
   getUsers(): void {
-    this.usuarios = this.LoginService.getUsers();
-    console.log(this.usuarios);
+    this.users = this.LoginService.getUsers();
   }
 
   inicioSesion(content:any):void {
-    for  (let i = 0; i < this.usuarios.length; i++){
+    for  (let i = 0; i < this.users.length; i++){
       if (
-        this.loginUsername.value === this.usuarios[i].username &&
-        this.loginPassword.value === this.usuarios[i].password
-      ){this.existeUsuario = true;
-        this.loggedUser = this.usuarios[i];
+        this.loginUsername.value === this.users[i].username &&
+        this.loginPassword.value === this.users[i].password
+      ){this.userExist = true;
+        this.loggedUser = this.users[i];
         localStorage.setItem('loggedUser', this.loggedUser.username);
         this.router.navigate(['/crud']);
         break;} 
-      else {this.existeUsuario = false; localStorage.clear();}
+      else {this.userExist = false; localStorage.clear();}
     };
-    if(!this.existeUsuario){this.open(content);};
-    console.log(this.existeUsuario);
-    console.log(this.loggedUser);
-    console.log(localStorage.getItem('loggedUser'));
+    if(!this.userExist){this.open(content);};
   }
 
-  open(content: any) {
+  open(content: any):void {
     this.modalService.open(content, {ariaLabelledBy: 'error login'});
   }
 

@@ -13,7 +13,7 @@ import { Marca } from 'src/app/model/marcas.model';
 })
 export class EditComponent implements OnInit {
   
-  public car!: Car;
+  car!: Car;
   marcas: Marca[]= [];
   marcasForm:string ='';
   colores: string[]=['Rojo','Amarillo','Azul','Verde','Morado','Blanco','Negro','Gris','Rosa','Naranja'];

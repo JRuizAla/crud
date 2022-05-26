@@ -12,8 +12,8 @@ export class LoginService {
   getUsers(): User[] {
     return usersData;
   }
-  
-  closeSesion():void{
+
+  closeSesion(): void{
     localStorage.clear();
     this.router.navigate(['']);
   }

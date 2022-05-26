@@ -1,23 +1,23 @@
 [
     {
-        "id":1,
-        "marca":"Ferrari",
-        "modelo":"Testarossa",
-        "anio":1984,
-        "color":"Rojo"
+        "id": 1,
+        "marca": "Ferrari",
+        "modelo": "Testarossa",
+        "anio": 1984,
+        "color": "Rojo"
     },
     {
-        "id":2,
-        "marca":"Lamborghini",
-        "modelo":"Diablo",
-        "anio":1990,
-        "color":"Amarillo"
+        "id": 2,
+        "marca": "Lamborghini",
+        "modelo": "Diablo",
+        "anio": 1990,
+        "color": "Amarillo"
     },
     {
-        "id":3,
-        "marca":"Renault",
-        "modelo":"Clio",
-        "anio":2006,
-        "color":"Gris"
+        "id": 3,
+        "marca": "Renault",
+        "modelo": "Clio",
+        "anio": 2006,
+        "color": "Gris"
     }
 ]
