@@ -52,10 +52,13 @@ export class AddComponent implements OnInit {
     this.marcas = this.crudService.getMarcas();
   }
 
-  addCar(): void{
-    let newCoche: Car = {id:this.cars.length+1 , marca: this.marcasForm, modelo: this.modelo.value, anio:this.anio.value, color: this.colorForm}
-    this.crudService.addCarHttp(newCoche as Car).subscribe(Coche => {this.cars.push(Coche);});
+  addCar(newCar: Car): void{
+    this.crudService.addCarHttp(newCar as Car).subscribe(car => {this.cars.push(car);});
+    this.cars.push(newCar);
     this.router.navigate(['/crud']);
   }
-  
+
+  getCarForm(): Car {
+    return {id:this.cars.length+1 , marca: this.marcasForm, modelo: this.modelo.value, anio:this.anio.value, color: this.colorForm}
+  }
 }

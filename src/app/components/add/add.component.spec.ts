@@ -54,17 +54,16 @@ describe('AddComponent', () => {
   it('should add cars', () => {
     let router = TestBed.get(Router);
     let spy = jest.spyOn( router, 'navigate');
-    let testCar = {id: 1, marca: 'Ferrari', modelo: 'Testarossa', anio: 1984, color: 'Rojo'};
-    component.cars = [testCar];
+    let testCar = {id: 1, marca: 'rrari', modelo: 'Testarossa', anio: 1984, color: 'Rojo'};
     let size = component.cars.length;
-    component.marcasForm = 'Dacia';
-    component.modelo.setValue('Sandero');
-    component.anio.setValue(2012);
-    component.colorForm = 'Blanco';
-    console.log(component.cars);
-    component.addCar();
-    console.log(component.addCar());
+    component.addCar(testCar);
     expect(component.cars.length).toEqual(size+1);
     expect(router.navigate).toHaveBeenCalledWith(['/crud']);
+  })
+
+  it('should return car', () => {
+    let spy = jest.spyOn(component, 'getCarForm');
+    let testCar = component.getCarForm();
+    expect(spy).not.toBeNull;
   })
 });
