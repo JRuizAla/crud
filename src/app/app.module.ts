@@ -13,6 +13,9 @@ import { CrudComponent } from './components/crud/crud.component';
 import { AddComponent } from './components/add/add.component';
 import { InMemoryDataService } from './services/in-memory-data.service';
 import { EditComponent } from './components/edit/edit.component';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,9 @@ import { EditComponent } from './components/edit/edit.component';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false }
-    )
+    ),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore())
   ],
   providers: [EditComponent],
   bootstrap: [AppComponent]
