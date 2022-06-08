@@ -1,11 +1,11 @@
 html {
     height: 753px;
-    background-color: #f9f294;
+    background-color: #CDC1FF;
 }
 body {
   height: 600px;
-  background-color: #fffdc1;
-  color: #e7fc71;
+  background-color: #7371fc;
+  color: #CDC1FF;
 }
 
 .btn-outline-primary{
