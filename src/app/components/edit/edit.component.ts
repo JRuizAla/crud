@@ -36,15 +36,13 @@ export class EditComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.crudService.getCar(this.route.snapshot.params['id']).subscribe( (car: Car) => {
-      this.car = car;
+    this.crudService.getCar(this.route.snapshot.params['id']);
       this.updateForm();
       this.getMarcas();
       console.log(this.car);
-    });
   }
 
-  closeSesion(){
+  closeSesion(){ 
     this.loginService.closeSesion();
   }
 
@@ -53,7 +51,7 @@ export class EditComponent implements OnInit {
     this.car.modelo = this.modelo.value;
     this.car.anio = this.anio.value;
     this.car.color = this.colorForm;
-    this.crudService.editCar(this.car).subscribe(response => console.log(response));
+    this.crudService.editCar(this.car);
     this.router.navigate(['/crud']);
     console.log(this.car)
   }
@@ -68,5 +66,4 @@ export class EditComponent implements OnInit {
   getMarcas():void{
     this.marcas = this.crudService.getMarcas();
   }
-
 }

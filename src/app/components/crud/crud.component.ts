@@ -30,7 +30,7 @@ export class CrudComponent implements OnInit {
 
   deleteCar(car: Car): void {
     this.coches = this.coches.filter(h => h !== car);
-    this.crudService.deleteCar(car.id).subscribe();
+    this.crudService.deleteCar(car);
   }
 
 

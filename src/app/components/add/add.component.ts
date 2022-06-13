@@ -53,7 +53,7 @@ export class AddComponent implements OnInit {
   }
 
   addCar(newCar: Car): void{
-    this.crudService.addCarHttp(newCar as Car).subscribe(car => {this.cars.push(car);});
+    this.crudService.addCar(newCar as Car);
     this.cars.push(newCar);
     this.router.navigate(['/crud']);
   }
