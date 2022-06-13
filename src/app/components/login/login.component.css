@@ -17,12 +17,6 @@ body {
     background-color: #CDC1FF;
 }
 
-.alert-danger{
-    color: #fc7171;
-    background-color: #ffffff00;
-    border-color: #fc7171;
-}
-
 
 .mt-n1 {
     margin-bottom: -1rem !important;
