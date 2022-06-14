@@ -43,8 +43,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let coche of coches">
-          <th scope="row">{{coche.id}}</th>
+        <tr *ngFor="let coche of coches, index as i">
+          <th scope="row">{{i+1}}</th>
           <td>{{coche.marca}}</td>
           <td>{{coche.modelo}}</td>
           <td>{{coche.anio}}</td>

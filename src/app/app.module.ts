@@ -16,6 +16,7 @@ import { EditComponent } from './components/edit/edit.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { provideFirestore,getFirestore } from '@angular/fire/firestore';
       InMemoryDataService, { dataEncapsulation: false }
     ),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    AngularFireModule.initializeApp(environment.firebase)
   ],
   providers: [EditComponent],
   bootstrap: [AppComponent]

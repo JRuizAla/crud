@@ -1,5 +1,5 @@
 export interface Car{
-    id: number,
+    id?: string,
     marca: string,
     modelo: string,
     anio: number,

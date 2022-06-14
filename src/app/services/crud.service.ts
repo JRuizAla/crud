@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
-import { Observable, map } from 'rxjs';
-import { tap } from 'rxjs/operators';
-import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from "@angular/fire/compat/firestore";
+import { Observable } from 'rxjs';
+import {
+  Firestore, addDoc, collection, collectionData,
+  doc, docData, deleteDoc, updateDoc, DocumentReference, setDoc, CollectionReference
+} from '@angular/fire/firestore';
 
 import { Car } from 'src/app/model/coche.model';
 import marcasData from 'src/app/mocks/marcas.json';
@@ -11,38 +13,40 @@ import { Marca } from 'src/app/model/marcas.model';
 @Injectable({ providedIn: 'root' })
 export class CrudService {
 
-  carsCollection: AngularFirestoreCollection<Car>;
-  cars: Observable<any[]>;
+  carsCollection: CollectionReference = collection(this.firestore, 'cars');
+  cars: Observable<Car[]>;
 
-  SERVER_URL: string = "/api/cars";
+  SERVER_URL: string = "/cars";
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
-  constructor(private http: HttpClient, private db: AngularFirestore) { 
-    this.carsCollection = db.collection('cars');
-    this.cars = db.collection('cars').valueChanges();
+  constructor(private http: HttpClient, private firestore: Firestore) {
+    this.cars = this.getCars();
   }
 
-  getCars():Observable<any[]>{
-    return this.cars;
+  getCars():Observable<Car[]>{
+      return collectionData(this.carsCollection, { idField: 'id' }) as Observable<Car[]>;
   }
 
-  getCar(id:string){
-    return this.carsCollection.doc('id').get();
+  getCar(id: string) {
+    const carsRef = doc(this.firestore, `${this.SERVER_URL}/${id}`);
+    return docData(carsRef, { idField: 'id' }) as Observable<Car>;
   }
 
   addCar(car: Car){
-    this.carsCollection.add(car);
+    return addDoc(this.carsCollection, car);
   }
 
   deleteCar(car: Car){
-    this.carsCollection.doc(`${car.id}`).delete();
+    const carDocRef = doc(this.firestore, `${this.SERVER_URL}/${car.id}`);
+    return deleteDoc(carDocRef);
   }
 
   editCar(car:Car){
-  this.carsCollection.doc('id').update(car);
+  const carDocRef = doc(this.firestore, `${this.SERVER_URL}/${car.id}`);
+  return setDoc(carDocRef, car);
   }
 
   getMarcas(): Marca[]{

@@ -59,6 +59,6 @@ export class AddComponent implements OnInit {
   }
 
   getCarForm(): Car {
-    return {id:this.cars.length+1 , marca: this.marcasForm, modelo: this.modelo.value, anio:this.anio.value, color: this.colorForm}
+    return {marca: this.marcasForm, modelo: this.modelo.value, anio:this.anio.value, color: this.colorForm}
   }
 }

@@ -36,10 +36,13 @@ export class EditComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.crudService.getCar(this.route.snapshot.params['id']);
+    this.crudService.getCar(this.route.snapshot.params['id']).subscribe(res => {
+      this.car = res
+    });
       this.updateForm();
       this.getMarcas();
       console.log(this.car);
+      console.log(this.marcas);
   }
 
   closeSesion(){ 
