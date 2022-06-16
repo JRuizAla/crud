@@ -10,11 +10,11 @@ import { AuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 
 const routes: Routes = [
-  { path: '', component: LoginComponent ,},
+  { path: '', component: LoginComponent},
   { path: '', redirectTo: '', pathMatch: 'full' },
-  { path: 'crud', component: CrudComponent, canActivate:[AuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
-  { path: 'add', component: AddComponent, canActivate:[AuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
-  { path: 'edit/:id', component: EditComponent, canActivate:[AuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin} }
+  { path: 'crud', component: CrudComponent, canActivate:[loginGuard]},
+  { path: 'add', component: AddComponent, canActivate:[loginGuard]},
+  { path: 'edit/:id', component: EditComponent, canActivate:[loginGuard]}
 
 ];
 

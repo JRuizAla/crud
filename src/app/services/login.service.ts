@@ -8,6 +8,8 @@ import {Auth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmai
 })
 export class LoginService {
 
+  successfulLogin: boolean = false;
+
   constructor(private router:Router, private auth: Auth) { }
 
   getUsers(): User[] {
@@ -20,18 +22,19 @@ export class LoginService {
   }
 
   login({ username, password }: User) {
-    return signInWithEmailAndPassword(this.auth, username, password);
+    return signInWithEmailAndPassword(this.auth, username, password).then(()=> this.successfulLogin=true);
   }
 
   register({ username, password }: User) {
-    return createUserWithEmailAndPassword(this.auth, username, password);
+    return createUserWithEmailAndPassword(this.auth, username, password)
   }
 
   logout() {
-    return signOut(this.auth);
+    this.router.navigate(['']);
+    return signOut(this.auth).then(()=> this.successfulLogin=false);
   }
 
   loginWithGoogle() {
-    return signInWithPopup(this.auth, new GoogleAuthProvider());
+    return signInWithPopup(this.auth, new GoogleAuthProvider()).then(()=> this.successfulLogin=true);;
   }
 }

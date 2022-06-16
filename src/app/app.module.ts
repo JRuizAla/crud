@@ -5,13 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { LoginComponent } from './components/login/login.component';
 import { AppComponent } from './app.component';
 import { CrudComponent } from './components/crud/crud.component';
 import { AddComponent } from './components/add/add.component';
-import { InMemoryDataService } from './services/in-memory-data.service';
 import { EditComponent } from './components/edit/edit.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -34,9 +32,6 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    ),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),

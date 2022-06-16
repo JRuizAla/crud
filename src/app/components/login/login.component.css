@@ -12,8 +12,6 @@ body {
     color: #7371fc;
     background-color: #ffffff00;
     border-color: #7371fc;
-    margin-left: 2px;
-    margin-right: 2px;
 }
 .fixed-bottom{
     background-color: #CDC1FF;
@@ -32,11 +30,4 @@ body {
 :disabled{
     color: #2b2b2f;
     border-color: #2b2b2f;
-}
-
-.btn-margin-left {
-    margin-left: 2px;
-}
-.btn-margin-right {
-    margin-right: 2px;
 }
