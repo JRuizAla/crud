@@ -11,7 +11,7 @@
     </div>
     <hr />
     <div class="form-floating mt-n1">
-      <input type="text" class="form-control" id="username" [formControl]="loginUsername" />
+      <input type="email" class="form-control" id="username" [formControl]="loginUsername" />
       <label for="username">Usuario</label><br />
     </div>
     <div *ngIf="loginUsername.touched === true && !loginUsername.valid">
@@ -25,7 +25,10 @@
       </div>
       <nav class="navbar">
         <input class="btn btn-outline-primary" type="submit" value="Acceder"
-          [disabled]="!loginPassword.valid || !loginUsername.valid" (click)="inicioSesion(content)" />
+          [disabled]="!loginPassword.valid || !loginUsername.valid" (click)="onClick()" />
+          <input class="btn btn-outline-primary" type="submit" value="Sign in with Google" (click)="loginWithGoogle()" />
+          <input class="btn btn-outline-primary" type="submit" value="Registrarse"
+          [disabled]="!loginPassword.valid || !loginUsername.valid" (click)="onClickRegister()" />
       </nav>
       <ng-template #content let-modal>
         <div class="modal-header">

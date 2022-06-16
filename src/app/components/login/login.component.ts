@@ -56,4 +56,41 @@ export class LoginComponent implements OnInit {
     this.modalService.open(content, {ariaLabelledBy: 'error login'});
   }
 
+  onClick():void{
+    let loginUser: User = {username:'',password:''};
+    console.log(loginUser);
+    loginUser.username = this.loginUsername.value;
+    loginUser.password = this.loginPassword.value;
+    console.log(loginUser);
+    this.login(loginUser);
+  }
+
+  login(loginData: User) {
+    this.LoginService
+      .login(loginData)
+      .then(() => this.router.navigate(['/crud']))
+      .catch((e) => console.log(e.message));
+  }
+
+  onClickRegister():void{
+    let loginUser:User = {username:'',password:''};
+    loginUser.username = this.loginUsername.value;
+    loginUser.password = this.loginPassword.value;
+    console.log(loginUser);
+    this.register(loginUser);
+  }
+
+  register(data: User) {
+    this.LoginService
+      .register(data)
+      .then(() => this.router.navigate(['']))
+      .catch((e) => console.log(e.message));
+  }
+
+  loginWithGoogle() {
+    this.LoginService
+      .loginWithGoogle()
+      .then(() => this.router.navigate(['/crud']))
+      .catch((e) => console.log(e.message));
+  }
 }

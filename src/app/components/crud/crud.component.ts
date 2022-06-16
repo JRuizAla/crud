@@ -21,7 +21,7 @@ export class CrudComponent implements OnInit {
   }
 
   closeSesion():void{ 
-    this.loginService.closeSesion();
+    this.loginService.logout();
   }
 
   editCar(car: Car):void{
