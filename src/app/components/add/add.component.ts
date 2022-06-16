@@ -16,7 +16,7 @@ export class AddComponent implements OnInit {
   cars: Car[]= [];
   marcas: Marca[]= [];
   marcasForm:string ='';
-  colores: string[]=['Rojo','Amarillo','Azul','Verde','Morado','Blanco','Negro','Gris','Rosa','Naranja'];
+  colores: string[]=['Rojo','Amarillo','Azul','Verde','Morado','Blanco','Negro','Gris','Rosa','Naranja','Marron','Dorado'];
   colorForm:string='';
   numberRegEx = /\-?\d*\.?\d{1,2}/;
 
