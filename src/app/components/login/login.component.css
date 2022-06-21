@@ -1,22 +1,9 @@
 html {
     height: 753px;
-    background-color: #CDC1FF;
 }
 body {
   height: 600px;
-  background-color: #ffffc1;
-  color: #7371fc;
 }
-
-.btn-outline-primary{
-    color: #7371fc;
-    background-color: #ffffff00;
-    border-color: #7371fc;
-}
-.fixed-bottom{
-    background-color: #CDC1FF;
-}
-
 
 .mt-n1 {
     margin-bottom: -1rem !important;
@@ -25,9 +12,4 @@ body {
 .mt-2 {
     margin-top: -1rem !important;
     margin-bottom: -0.25rem !important;
-}
-
-:disabled{
-    color: #2b2b2f;
-    border-color: #2b2b2f;
 }

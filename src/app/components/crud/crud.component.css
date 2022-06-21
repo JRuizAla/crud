@@ -1,14 +1,10 @@
 html {
     height: 753px;
-    background-color: #A594F9;
 }
 body {
   height: 600px;
-  background-color: #ffffff;
 }
-p{
-    color: #CDC1FF; 
-}
+
 .mt-n1 {
     margin-top: -1.8rem !important;
 }
@@ -25,43 +21,7 @@ p{
 .btn{
     transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
-.btn-outline-primary{
-    color: #24222b;
-    background-color: #ffffff00;
-    border-color: #24222b;
-}
-.btn-outline-primary:hover{
-    color: #CDC1FF;
-    background-color: #24222b;
-    border-color: #CDC1FF;
-}
-.btn-outline-secondary{
-    color: #000000;
-    background-color: #ffffff00;
-    border-color: #000000;
-}
-.btn-outline-secondary:hover{
-    color:#CDC1FF;
-    background-color: #000000;
-    border-color: #CDC1FF;
-}
 
-table{
-    background-color: #CDC1FF;
-}
-
-.navbar{
-    background-color: #A594F9;
-}
-
-.nav-link{
-    color: #000000;
-}
-
-.nav-link.active{
-    color: #000000;
-    background-color:#CDC1FF !important;
-}
 .navbar-brand{
     padding-left: 20px;
 }
