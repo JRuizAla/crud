@@ -1,20 +1,17 @@
 import { Injectable } from '@angular/core';
 import { User } from '../model/user.model';
-import usersData from 'src/app/mocks/usuarios.json';
 import { Router } from '@angular/router';
 import {Auth, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, signOut} from '@angular/fire/auth';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
   successfulLogin: boolean = false;
+  loggedUsername!: string;
 
   constructor(private router:Router, private auth: Auth) { }
-
-  getUsers(): User[] {
-    return usersData;
-  }
 
   closeSesion(): void{
     localStorage.clear();
@@ -22,7 +19,7 @@ export class LoginService {
   }
 
   login({ username, password }: User) {
-    return signInWithEmailAndPassword(this.auth, username, password).then(()=> this.successfulLogin=true);
+    return signInWithEmailAndPassword(this.auth, username, password).then(()=> this.successfulLogin=true).then(()=> this.loggedUsername = username);
   }
 
   register({ username, password }: User) {
@@ -36,5 +33,9 @@ export class LoginService {
 
   loginWithGoogle() {
     return signInWithPopup(this.auth, new GoogleAuthProvider()).then(()=> this.successfulLogin=true);;
+  }
+
+  getUsername():string{
+    return this.loggedUsername;
   }
 }

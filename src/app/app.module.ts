@@ -11,11 +11,16 @@ import { AppComponent } from './app.component';
 import { CrudComponent } from './components/crud/crud.component';
 import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
+import { RegisterComponent } from './components/register/register.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+
+
 
 @NgModule({
   declarations: [
@@ -23,7 +28,9 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     LoginComponent,
     CrudComponent,
     AddComponent,
-    EditComponent
+    EditComponent,
+    RegisterComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     AngularFireModule.initializeApp(environment.firebase),
-    provideAuth(() => getAuth())
+    provideAuth(() => getAuth()),
   ],
   providers: [EditComponent],
   bootstrap: [AppComponent]

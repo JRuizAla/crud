@@ -48,11 +48,7 @@ export class LoginComponent {
   }
 
   onClickRegister():void{
-    let loginUser:User = {username:'',password:''};
-    loginUser.username = this.loginUsername.value;
-    loginUser.password = this.loginPassword.value;
-    console.log(loginUser);
-    this.register(loginUser);
+    this.router.navigate(['/register']);
   }
 
   register(data: User) {

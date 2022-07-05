@@ -26,5 +26,13 @@
     {
         "id":8,
         "marca":"Volvo"
+    },
+    {
+        "id":9,
+        "marca":"Citroen"
+    },
+    {
+        "id":8,
+        "marca":"Lotus"
     }
 ]

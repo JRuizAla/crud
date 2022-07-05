@@ -6,12 +6,14 @@ import { loginGuard } from './guards/loginGuard';
 import{ AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
 import { AuthGuard, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
+import { RegisterComponent } from './components/register/register.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 
 const routes: Routes = [
   { path: '', component: LoginComponent},
   { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent},
   { path: 'crud', component: CrudComponent, canActivate:[loginGuard]},
   { path: 'add', component: AddComponent, canActivate:[loginGuard]},
   { path: 'edit/:id', component: EditComponent, canActivate:[loginGuard]}

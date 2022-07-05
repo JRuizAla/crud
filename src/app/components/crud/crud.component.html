@@ -1,35 +1,9 @@
 <html>
-<header>
-  <nav class="navbar navbar-expand-md">
-    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-      <ul class="navbar-nav shadow bg-white rounded">
-        <a class="navbar-brand">
-          <img src="https://i.ibb.co/drvs9N1/car.png" class="mt-1" width="100" height="100"/>
-          <p class="text mt-n1 mb-1">NTT Garage</p>
-        </a>
-      </ul>
-    </div>
-    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2 justify-content-end">
-      <ul class="navbar-nav mt-5">
-        <li class="nav-item">
-          <p class="nav-link">Usuario conectado: {{ user }}</p>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn btn-outline-primary mx-1 hover" routerLink="/add">Añadir Coche</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn btn-outline-primary mx-1" (click)="closeSesion()">Cerrar Sesión</button>
-        </li>
-      </ul>
-    </div>
-  </nav>
-</header>
-
-<body>
+  <app-my-sidebar></app-my-sidebar>
   <br />
   <br />
-
   <br />
+  <br><br>
   <div class="container">
     <table class="table table-striped rounded">
       <thead>
@@ -39,7 +13,7 @@
           <th scope="col">Modelo</th>
           <th scope="col">Año</th>
           <th scope="col">Color</th>
-          <th style=" width: 20%;" scope="col">Acción</th>
+          <th style=" width: 30%;" scope="col">Acción</th>
         </tr>
       </thead>
       <tbody>
@@ -57,6 +31,5 @@
       </tbody>
     </table>
   </div>
-</body>
 <div class="fixed-bottom"></div>
 </html>

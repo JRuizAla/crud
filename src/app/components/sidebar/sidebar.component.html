@@ -1,0 +1,51 @@
+<div class="sidebar-nav">
+    <nav class="navbar navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                aria-controls="offcanvasNavbar">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div style="font-size:32px; text-align:center;" >
+                NTT Garage
+            </div>
+            <div class="offcanvas offcanvas-start shadow" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav">
+                        <li>
+                            <a href="crud"><i class="bi bi-car"></i>
+                                <span class="item-text">Home</span></a>
+                        </li>
+                        <li>
+                            <a href="add"><i class="bi bi-car"></i>
+                                <span class="item-text">Añadir Coche</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="btn-group">
+                <a href="#" class="dropdown-toggle text-white text-decoration-none" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    <span class="usericon"><img height="16" width="16" src ="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1657007853~hmac=744456e4c4e0e4a473f08f01b066928b"/></span>
+                    <span class="textnone"> {{username}} </span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <button class="dropdown-item" type="button">
+                            <i class="bi bi-lock-fill"></i> Change Password
+                        </button>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider" />
+                    </li>
+                    <li>
+                        <button class="dropdown-item" type="button" (click)="closeSesion()">
+                            <i class="bi bi-box-arrow-right"></i> Sign out
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<br><br>

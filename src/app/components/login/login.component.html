@@ -26,17 +26,19 @@
       <nav class="navbar">
         <input class="btn btn-outline-primary" type="submit" value="Acceder"
           [disabled]="!loginPassword.valid || !loginUsername.valid" (click)="onClick()" />
-          <input class="btn btn-outline-primary" type="submit" value="Sign in with Google" (click)="loginWithGoogle()" />
-          <input class="btn btn-outline-primary" type="submit" value="Registrarse"
-          [disabled]="!loginPassword.valid || !loginUsername.valid" (click)="onClickRegister()" />
+        <input class="btn btn-outline-primary" type="submit" value="Registrarse" (click)="onClickRegister()" />
+        <br />
+        <input style="text-align:center;" class="btn btn-outline-primary" type="submit" value="Sign in with Google" (click)="loginWithGoogle()" />
       </nav>
       <ng-template #content let-modal>
         <div class="modal-header">
-          <h4 class="modal-title" id="error login">Error al iniciar sesión</h4>
+          <h4 class="modal-title" id="error login">
+            Error al iniciar sesión
+          </h4>
           <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
         </div>
         <div class="modal-body">
-        <p>El usuario o la contraseña son incorrectos</p>
+          <p>El usuario o la contraseña son incorrectos</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">
@@ -49,4 +51,5 @@
   </div>
 </body>
 <div class="fixed-bottom"></div>
+
 </html>

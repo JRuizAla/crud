@@ -25,3 +25,7 @@ body {
 .navbar-brand{
     padding-left: 20px;
 }
+
+.fixed-bottom{
+    height: 15px;
+}

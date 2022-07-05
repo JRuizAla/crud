@@ -1,16 +1,5 @@
 module.exports = {
-  globals: {
-    "ts-jest": {
-      allowSyntheticDefaultImports: true,
-      tsconfig: "<rootDir>/tsconfig.spec.json",
-      stringifyContentPathRegex: "\\.html$",
-    },
-  },
-  transform: {
-    "^.+\\.js": "ts-jest",
-    "\\.js$": "<rootDir>/node_modules/babel-jest",
-  },
-
+  globalSetup: "jest-preset-angular/global-setup",
   roots: ["<rootDir>", "src/"],
   modulePaths: ["<rootDir>", "src/"],
   moduleFileExtensions: ["ts", "html", "js", "json"],
