@@ -30,7 +30,7 @@ export class SidebarComponent implements OnInit {
     if(this.hasFired===false){
       console.log("entro if");
       console.log(this.hasFired);
-      this.hasFired = !this.hasFired;
+      this.hasFired = !this.hasFired.valueOf();
       this.loggedUser = this.loginService.getUsername();
       this.username = this.loggedUser.substring(0, this.loggedUser.indexOf('@'));
     }else{

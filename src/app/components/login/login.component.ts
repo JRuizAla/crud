@@ -31,16 +31,18 @@ export class LoginComponent {
     this.modalService.open(content, {ariaLabelledBy: 'error login'});
   }
 
-  onClick():void{
-    let loginUser: User = {username:'',password:''};
+  async onClick():Promise<void>{
+    let loginUser: User = {email: '', username:'', password:''};
     console.log(loginUser);
     loginUser.username = this.loginUsername.value;
     loginUser.password = this.loginPassword.value;
+    loginUser.email = await this.LoginService.getUserEmail(loginUser.username);
     console.log(loginUser);
     this.login(loginUser);
   }
 
   login(loginData: User) {
+    console.log("recibido en el login", loginData);
     this.LoginService
       .login(loginData)
       .then(() => this.router.navigate(['/crud']))

@@ -11,6 +11,10 @@ import { User } from 'src/app/model/user.model';
 })
 export class RegisterComponent {
 
+  loginEmail = new FormControl('',[
+    Validators.required,
+    Validators.minLength(4),
+  ]);
   loginUsername = new FormControl('',[
     Validators.required,
     Validators.minLength(4),
@@ -23,7 +27,8 @@ export class RegisterComponent {
   constructor(private loginService:LoginService, private router: Router) { }
 
   onClick():void{
-    let loginUser:User = {username:'',password:''};
+    let loginUser:User = {email:'', username:'', password:''};
+    loginUser.email = this.loginEmail.value;
     loginUser.username = this.loginUsername.value;
     loginUser.password = this.loginPassword.value;
     console.log(loginUser);

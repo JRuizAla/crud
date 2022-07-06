@@ -11,12 +11,19 @@
     </div>
     <hr />
     <div class="form-floating mt-n1">
-      <input type="email" class="form-control" id="username" [formControl]="loginUsername" />
+      <input type="email" class="form-control" id="email" [formControl]="loginEmail" />
       <label for="username">Correo electrónico</label><br />
     </div>
     <div *ngIf="loginUsername.touched === true && !loginUsername.valid">
       <small style="color: rgb(255, 90, 90)">Inserte un correo válido</small>
     </div>
+    <div class="form-floating mt-n1">
+        <input type="email" class="form-control" id="username" [formControl]="loginUsername" />
+        <label for="username">Nombre de usuario</label><br />
+      </div>
+      <div *ngIf="loginUsername.touched === true && !loginUsername.valid">
+        <small style="color: rgb(255, 90, 90)">Inserte un nombre de usuario válido, mínimo 4 caracteres</small>
+      </div>
     <div class="form-floating mt-n2">
       <input type="password" class="form-control" id="password1" [formControl]="loginPassword" />
       <label for="password1">Contraseña</label><br />
