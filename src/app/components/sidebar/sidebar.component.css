@@ -16,7 +16,6 @@
 .sidebar-nav .offcanvas ul li a span {
   font-size: 18px;
   position: relative;
-  top: -4px;
   transition: 0.5s;
 }
 .sidebar-nav .offcanvas.show ul li a:hover span {
@@ -29,4 +28,7 @@
 .bi::before, [class^="bi-"]::before, [class*=" bi-"]::before
 {
   margin-right: 5px;
+}
+.usericon{
+  top: -3px;
 }
