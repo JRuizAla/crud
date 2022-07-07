@@ -12,7 +12,7 @@ export class SidebarComponent implements OnInit {
   @Output() toggleSidebar: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   loggedUser!: string;
-  username: string = '';
+  username: string | null = '';
   hasFired : boolean = false;
 
 
@@ -27,16 +27,7 @@ export class SidebarComponent implements OnInit {
   }
 
   updateUsername():void{
-    if(this.hasFired===false){
-      console.log("entro if");
-      console.log(this.hasFired);
-      this.hasFired = !this.hasFired.valueOf();
-      this.loggedUser = this.loginService.getUsername();
-      this.username = this.loggedUser.substring(0, this.loggedUser.indexOf('@'));
-    }else{
-      console.log("entro else");
-      console.log(this.hasFired);
-    }
+    this.username = localStorage.getItem('username');
   }
   handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
 }

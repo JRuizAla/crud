@@ -20,7 +20,6 @@ export class AddComponent implements OnInit {
   colorForm:string='';
   numberRegEx = /\-?\d*\.?\d{1,2}/;
 
-//form group
   modelo = new FormControl('',[
     Validators.required,
     Validators.minLength(3),

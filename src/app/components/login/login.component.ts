@@ -33,10 +33,19 @@ export class LoginComponent {
 
   async onClick():Promise<void>{
     let loginUser: User = {email: '', username:'', password:''};
+    let check: string;
     console.log(loginUser);
-    loginUser.username = this.loginUsername.value;
+    check = this.loginUsername.value;
     loginUser.password = this.loginPassword.value;
-    loginUser.email = await this.LoginService.getUserEmail(loginUser.username);
+    if(check.includes('@'))
+      {
+        loginUser.email = this.loginUsername.value;
+        loginUser.username = await this.LoginService.getUsernameByEmail(check)
+      }
+    else{
+        loginUser.email = await this.LoginService.getUserEmailByUsername(check);
+        loginUser.username = this.loginUsername.value;
+        }
     console.log(loginUser);
     this.login(loginUser);
   }
@@ -45,6 +54,7 @@ export class LoginComponent {
     console.log("recibido en el login", loginData);
     this.LoginService
       .login(loginData)
+      .then(() => localStorage.setItem('username', loginData.username))
       .then(() => this.router.navigate(['/crud']))
       .catch((e) => console.log(e.message));
   }

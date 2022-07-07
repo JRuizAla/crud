@@ -61,15 +61,23 @@ export class LoginService {
     );
   }
 
-  getUsername(): string {
-    return this.loggedUsername;
-  }
-
   addUser(user: User) {
     return addDoc(this.usersCollection, user);
   }
 
   async getUserEmail(id: string): Promise<string> {
+    let email: string = '';
+    const q = query(this.usersCollection, where('email', '==', id));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, ' => ', doc.data(), "query", doc.get('email'));
+       email = doc.get('email');
+       console.log("email obetnido = " , email)
+    });
+    return email;
+  }
+
+  async getUserEmailByUsername(id: string): Promise<string> {
     let email: string = '';
     const q = query(this.usersCollection, where('username', '==', id));
     const querySnapshot = await getDocs(q);
@@ -79,5 +87,29 @@ export class LoginService {
        console.log("email obetnido = " , email)
     });
     return email;
+  }
+
+  async getUsername(id: string): Promise<string> {
+    let username: string = '';
+    const q = query(this.usersCollection, where('username', '==', id));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, ' => ', doc.data(), "query", doc.get('email'));
+       username = doc.get('username');
+       console.log("username obetnido = " , username)
+    });
+    return username;
+  }
+
+  async getUsernameByEmail(id: string): Promise<string> {
+    let username: string = '';
+    const q = query(this.usersCollection, where('email', '==', id));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      console.log(doc.id, ' => ', doc.data(), "query", doc.get('email'));
+       username = doc.get('username');
+       console.log("username obetnido = " , username)
+    });
+    return username;
   }
 }

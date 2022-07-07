@@ -11,18 +11,24 @@
     </div>
     <hr />
     <div class="form-floating mt-n1">
-      <input type="email" class="form-control" id="email" [formControl]="loginEmail" />
+      <input type="email" class="form-control" id="email" [formControl]="loginEmail" (keyup)="checkEmail()" />
       <label for="username">Correo electrónico</label><br />
     </div>
     <div *ngIf="loginUsername.touched === true && !loginUsername.valid">
       <small style="color: rgb(255, 90, 90)">Inserte un correo válido</small>
     </div>
+    <div *ngIf="emailExists === true">
+        <small style="color: rgb(255, 90, 90)">Inserte otro email, {{loginEmail.value}} ya existe. </small>
+      </div>
     <div class="form-floating mt-n1">
-        <input type="email" class="form-control" id="username" [formControl]="loginUsername" />
+        <input type="email" class="form-control" id="username" [formControl]="loginUsername" (keyup)="checkUsername()" />
         <label for="username">Nombre de usuario</label><br />
       </div>
       <div *ngIf="loginUsername.touched === true && !loginUsername.valid">
         <small style="color: rgb(255, 90, 90)">Inserte un nombre de usuario válido, mínimo 4 caracteres</small>
+      </div>
+      <div *ngIf="usernameExists === true">
+        <small style="color: rgb(255, 90, 90)">Inserte otro nombre de usuario válido, {{loginUsername.value}} ya existe. </small>
       </div>
     <div class="form-floating mt-n2">
       <input type="password" class="form-control" id="password1" [formControl]="loginPassword" />
@@ -32,7 +38,7 @@
       </div>
       <nav class="navbar">
           <input class="btn btn-outline-primary" type="submit" value="Registrarse"
-          [disabled]="!loginPassword.valid || !loginUsername.valid" (click)="onClick()" />
+          [disabled]="!loginPassword.valid || !loginUsername.valid || emailExists === true || usernameExists === true" (click)="onClick()" />
       </nav>
       <hr />
     </div>

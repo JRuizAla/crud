@@ -24,6 +24,9 @@ export class RegisterComponent {
     Validators.minLength(4),
   ]);
 
+  emailExists: boolean = false;
+  usernameExists: boolean = false;
+
   constructor(private loginService:LoginService, private router: Router) { }
 
   onClick():void{
@@ -34,5 +37,29 @@ export class RegisterComponent {
     console.log(loginUser);
     this.loginService.register(loginUser);
     this.router.navigate(['']);
+  }
+
+  async checkEmail(){
+    let currentEmail = this.loginEmail.value;
+    let exists: string = '';
+    exists = await this.loginService.getUserEmail(currentEmail);
+    console.log("")
+    console.log(" despues del await email:", exists)
+    if(exists === ''){ this.emailExists = false;}
+    else{ this.emailExists = true;}
+    console.log(" despues del if emailexists:", this.emailExists)
+    console.log("")
+  }
+
+  async checkUsername(){
+    let currentUsername = this.loginUsername.value;
+    let exists: string = '';
+    exists = await this.loginService.getUsername(currentUsername);
+    console.log("")
+    console.log(" despues del await user:", exists)
+    if(exists === ''){ this.usernameExists = false;}
+    else{ this.usernameExists = true;}
+    console.log(" despues del if usernameexists:", this.usernameExists)
+    console.log("")
   }
 }
