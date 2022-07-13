@@ -13,12 +13,14 @@ import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { AngularFireModule } from '@angular/fire/compat';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+
 
 
 
@@ -30,7 +32,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     AddComponent,
     EditComponent,
     RegisterComponent,
-    SidebarComponent
+    SidebarComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,

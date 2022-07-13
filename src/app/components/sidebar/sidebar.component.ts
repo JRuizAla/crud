@@ -30,4 +30,8 @@ export class SidebarComponent implements OnInit {
     this.username = localStorage.getItem('username');
   }
   handleSidebarToggle = () => this.toggleSidebar.emit(!this.isExpanded);
+
+  myprofile():void{
+    this.router.navigate(['my-profile']);
+  }
 }

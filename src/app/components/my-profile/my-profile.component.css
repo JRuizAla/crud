@@ -1,0 +1,7 @@
+.center{
+    align-self: center;
+}
+
+.row{
+    flex-wrap: nowrap;
+}

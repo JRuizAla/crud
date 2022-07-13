@@ -31,7 +31,9 @@
       <option *ngFor="let color of colores">{{color}}</option>
     </select>
   </div>
+  <div align="right">
   <input class="btn btn-outline-primary" type="submit" value="Guardar"
     [disabled]="!anio.valid || !modelo.valid || !(marcasForm !=='') || !(colorForm !=='') " (click)="saveForm()" />
+  </div>
   <hr />
 </div>
