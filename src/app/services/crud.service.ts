@@ -17,6 +17,7 @@ export class CrudService {
   cars: Observable<Car[]>;
 
   SERVER_URL: string = "/cars";
+  LOCAL_URL: string = "http://localhost:8080"
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -27,12 +28,11 @@ export class CrudService {
   }
 
   getCars():Observable<Car[]>{
-      return collectionData(this.carsCollection, { idField: 'id' }) as Observable<Car[]>;
+      return this.http.get(`${this.LOCAL_URL}/crud`) as Observable<Car[]>;
   }
 
   getCar(id: string) {
-    const carsRef = doc(this.firestore, `${this.SERVER_URL}/${id}`);
-    return docData(carsRef, { idField: 'id' }) as Observable<Car>;
+    return this.http.get(`${this.LOCAL_URL}/edit/${id}`) as Observable<Car>;
   }
 
   addCar(car: Car){
