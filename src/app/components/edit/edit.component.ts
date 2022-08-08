@@ -52,6 +52,7 @@ export class EditComponent implements OnInit {
     this.car.modelo = this.modelo.value;
     this.car.anio = this.anio.value;
     this.car.color = this.colorForm;
+    this.car.id = this.route.snapshot.params['id'];
     this.crudService.editCar(this.car);
     this.router.navigate(['/crud']);
     console.log(this.car)
