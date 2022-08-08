@@ -36,6 +36,7 @@ export class CrudService {
   }
 
   addCar(car: Car){
+    this.http.get(`${this.LOCAL_URL}/update}`)
     return addDoc(this.carsCollection, car);
   }
 
@@ -46,6 +47,7 @@ export class CrudService {
 
   editCar(car:Car){
   const carDocRef = doc(this.firestore, `${this.SERVER_URL}/${car.id}`);
+  this.http.get(`${this.LOCAL_URL}/update}`)
   return setDoc(carDocRef, car);
   }
 
