@@ -36,18 +36,19 @@ export class CrudService {
   }
 
   addCar(car: Car){
-    this.http.get(`${this.LOCAL_URL}/update}`)
+    this.http.get(`${this.LOCAL_URL}/update`).subscribe(res => console.log(res));
     return addDoc(this.carsCollection, car);
   }
 
   deleteCar(car: Car){
     const carDocRef = doc(this.firestore, `${this.SERVER_URL}/${car.id}`);
+    this.http.get(`${this.LOCAL_URL}/update`).subscribe(res => console.log(res));
     return deleteDoc(carDocRef);
   }
 
   editCar(car:Car){
   const carDocRef = doc(this.firestore, `${this.SERVER_URL}/${car.id}`);
-  this.http.get(`${this.LOCAL_URL}/update}`)
+  this.http.get(`${this.LOCAL_URL}/update`).subscribe(res => console.log(res));
   return setDoc(carDocRef, car);
   }
 

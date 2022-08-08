@@ -34,7 +34,7 @@ export class AddComponent implements OnInit {
   constructor(private router: Router, private crudService: CrudService, private loginService:LoginService) {}
 
   ngOnInit(): void { this.getCars(); this.getMarcas();
-
+    
   }
 
   closeSesion():void{
