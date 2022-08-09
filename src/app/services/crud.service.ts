@@ -3,8 +3,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import {
-  Firestore, addDoc, collection, collectionData,
-  doc, docData, deleteDoc, updateDoc, DocumentReference, setDoc, CollectionReference
+  Firestore, addDoc, collection,
+  doc, deleteDoc,  setDoc, CollectionReference, onSnapshot
 } from '@angular/fire/firestore';
 
 import { Car } from 'src/app/model/coche.model';
@@ -50,6 +50,14 @@ export class CrudService {
   const carDocRef = doc(this.firestore, `${this.SERVER_URL}/${car.id}`);
   this.http.get(`${this.LOCAL_URL}/update`).subscribe(res => console.log(res));
   return setDoc(carDocRef, car);
+  }
+
+  updateDB(){
+    onSnapshot(this.carsCollection, (snapshot) => {
+      console.log("llamado onSnapshot")
+      this.http.get(`${this.LOCAL_URL}/update`).subscribe(res => console.log(res));
+      this.cars = this.getCars();
+      })
   }
 
   getMarcas(): Marca[]{
