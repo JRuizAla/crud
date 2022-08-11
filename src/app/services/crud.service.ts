@@ -52,14 +52,6 @@ export class CrudService {
   return setDoc(carDocRef, car);
   }
 
-  updateDB(){
-    onSnapshot(this.carsCollection, (snapshot) => {
-      console.log("llamado onSnapshot")
-      this.http.get(`${this.LOCAL_URL}/update`).subscribe(res => console.log(res));
-      this.cars = this.getCars();
-      })
-  }
-
   getMarcas(): Marca[]{
     return marcasData;
   }
